@@ -1,4 +1,4 @@
-![../chlara and her sister.png]
+![./chlara and her sister.png]
 
 Behold, the sinister sister. 
 
