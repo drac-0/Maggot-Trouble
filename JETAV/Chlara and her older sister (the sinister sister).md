@@ -1,8 +1,8 @@
-![chlara and her sister](./chlara and her sister.png)
 
+# Introduction/Etherane 
 Behold, the sinister sister. 
 
-Chlara and her older sister (who refused to told her name)These two are representing gluttony so well. How come?. Well, do you fellow reader have a basic understanding about string in C?. If not, then let me educate you. In C/C++, there is a data type called string literal and character array. 
+Chlara and her older sister (who refused to told her name) are the biggest representation of gluttony. How come?. Well, do you fellow reader have a basic understanding about string in C?. If not, then let me educate you. In C/C++, there is a data type called string literal and character array. 
 
 We will go with string literal first, its declared this way:
 ```
@@ -30,6 +30,7 @@ What i do in Chlara.h and Chlara_oldersister.c are merely a self invention.
 
 Now, i am expecting you fellow reader to be fluent in this type already so we can hop into the next subtopic. The source code
 
+# Chlara_oldersister.h
 ```
 #ifndef CHLARA_H
 #define CHLARA_H
@@ -55,7 +56,9 @@ DDD * Womb(DDD *I1, DDD *I2);
 
 #endif
 ```
-i don't have to explain a lot of thing in the Chlara_oldersister.h  content , its just a normal header file afterall. Declaration of 2 structure, which contains the value of a quite similar variable. Main variable (string literal, DDD struct), keepUp, and len. It will later be unfolded as we get into the definition we declared here.
+i don't have to explain a lot of thing in the Chlara_oldersister.h  content , its just a normal header file afterall. Declaration of 2 structure, which contains the value of a quite similar variable. Main variable (string literal, DDD struct), keepUp, and len. The use of each structure will later be unfolded as we get into the definition of function we declared here.
+
+# Chlara.c 
 ```
 #include <sys/types.h>
 #include "Chlara_oldersister.h"
@@ -109,4 +112,44 @@ DDD * Womb(DDD *I1, DDD *I2){
 }
 ```
 
-We will goes function by function. Since there is only 
+We will goes function by function. Since there is 4 function, so there will be 4 subsection
+
+## append
+
+```
+void append(char data, DDD *new ){
+      if (new->keepUp >= new->len){
+            if (new->len == 0 ) new->len = 256;
+            else {new->len *= 2;}
+            new->Pdata = realloc(new->Pdata, new->len * sizeof(*new->Pdata)); // culprit
+      }
+      new->Pdata[new->keepUp++] = data;
+      new->Pdata[new->keepUp] = '\0';
+}
+```
+how can we make a string immutable?
+
+This is the way. Take a note of the DDD structure, DDD structure consist of 3 variable, character pointer named Pdata and 2 size_t variable (len and keepUp). i've explained it before, 
+
+
+## printAL2
+## DVoldAppend
+## Womb
+
+
+
+# The value Chlara and her sister offer in JETAV
+
+Hash Bit detection
+
+```mermaid
+flowchart TD
+    A[collect files] --> B[hash file]
+    B --> C[compare with db]
+    C --> D{match?}
+    D -->|yes| E[flag as malware]
+    D -->|no| F[clean]
+```
+
+
+
